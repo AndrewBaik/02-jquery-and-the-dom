@@ -41,6 +41,11 @@ Article.prototype.toHtml = function() {
 
   $newArticle.appendTo('#articles');
 
+
+
+
+
+
   /* TODO: Now use jQuery traversal and setter methods to fill in the rest of the current template clone with values of the properties of this particular Article instance.
     We need to fill in:
       1. author name,
@@ -62,18 +67,6 @@ rawData.sort(function(a,b) {
 
 // TODO: Refactor these for loops using the .forEach() array method.
 
-// names.forEach( function(val,i) { console.log} );
-
-rawData.forEach(function createArticle(value){
-  articles.push(new Article(value));
-});
-
-articles.forEach(function renderData(value){
-  value.toHtml();
-});
-
-
-
 // for(let i = 0; i < rawData.length; i++) {
 //   articles.push(new Article(rawData[i]));
 // }
@@ -85,10 +78,10 @@ articles.forEach(function renderData(value){
 // $('.template').clone().appendTo('#articles');
 
 // $('div.byline a').addClass('author');
-// articles.push(new Article(rawData[0]));
-// articles.push(new Article(rawData[1]));
-// articles.push(new Article(rawData[2]));
+articles.push(new Article(rawData[0]));
+articles.push(new Article(rawData[1]));
+articles.push(new Article(rawData[2]));
 // new Article(rawData[0]);
-// articles[0].toHtml();
-// articles[1].toHtml();
-// articles[2].toHtml();
+articles[0].toHtml();
+articles[1].toHtml();
+articles[2].toHtml();
