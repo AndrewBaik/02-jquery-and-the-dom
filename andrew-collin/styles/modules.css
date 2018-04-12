@@ -4,3 +4,49 @@
 .displayarticles {
   display: initial;
 }
+
+h1 {
+  margin-top: 0;
+  padding: .5em 0 0 .5em;
+}
+
+h2 {
+  padding-left: .5em;
+  margin-bottom: .5em;
+}
+
+div.icon-menu {
+  margin: 0;
+  padding: 0;
+}
+
+nav.main-nav {
+  z-index: inherit;
+}
+
+div.icon-menu:before {
+  float: right;
+  position: absolute;
+  left: 95%;
+  top: 5%;
+}
+
+nav.main-nav a {
+  color: gray;
+text-decoration: none;
+  margin-left: 5%;
+}
+
+img {
+  max-width: 80%;
+  height: auto;
+  width: auto\100000;
+  margin: .7em;
+}
+
+img.pull-rigth{
+  float:right;
+}
+img.pull-left {
+  float: left;
+}

@@ -28,6 +28,14 @@ Article.prototype.toHtml = function() {
   let $newArticle = $('article.template').clone();
   /* TODO: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
 
+
+  /* TODO: Now use jQuery traversal and setter methods to fill in the rest of the current template clone with values of the properties of this particular Article instance.
+  We need to fill in:
+  1. author name,
+  2. author url,
+  3. article title,
+  4. article body, and
+  5. publication date. */
   if (!this.publishedOn) $newArticle.addClass('draft');
 
   $newArticle.removeClass().addClass('displayarticles')
@@ -38,16 +46,8 @@ Article.prototype.toHtml = function() {
   $newArticle.find('#title').text(this.title);
   $newArticle.find('section.article-body').html(this.body);
   $newArticle.find('time').attr('datetime', this.publishedOn);
-
   $newArticle.appendTo('#articles');
 
-  /* TODO: Now use jQuery traversal and setter methods to fill in the rest of the current template clone with values of the properties of this particular Article instance.
-    We need to fill in:
-      1. author name,
-      2. author url,
-      3. article title,
-      4. article body, and
-      5. publication date. */
 
   // REVIEW: Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
@@ -62,8 +62,6 @@ rawData.sort(function(a,b) {
 
 // TODO: Refactor these for loops using the .forEach() array method.
 
-// names.forEach( function(val,i) { console.log} );
-
 rawData.forEach(function createArticle(value){
   articles.push(new Article(value));
 });
@@ -71,24 +69,3 @@ rawData.forEach(function createArticle(value){
 articles.forEach(function renderData(value){
   value.toHtml();
 });
-
-
-
-// for(let i = 0; i < rawData.length; i++) {
-//   articles.push(new Article(rawData[i]));
-// }
-
-// for(let i = 0; i < articles.length; i++) {
-//   $('#articles').append(articles[i].toHtml());
-// }
-
-// $('.template').clone().appendTo('#articles');
-
-// $('div.byline a').addClass('author');
-// articles.push(new Article(rawData[0]));
-// articles.push(new Article(rawData[1]));
-// articles.push(new Article(rawData[2]));
-// new Article(rawData[0]);
-// articles[0].toHtml();
-// articles[1].toHtml();
-// articles[2].toHtml();
